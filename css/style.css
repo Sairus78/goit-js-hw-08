@@ -1,52 +1,56 @@
-/* .gallery {
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 20px;
-  user-select: none;
-  list-style: none;
-}
-.gallery-item {
-  list-style: none;
-  width: 360px;
-  height: 200px;
-  background-color: white;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-}
-.gallery-image {
-  width: 360px;
-  height: 200px;
-  object-fit: contain;
-  object-position: center;
-  border-radius: 8px;
-} */
-
-/* Загальний стиль для галереї */
 .gallery {
   display: grid; /* Використання CSS Grid */
-  grid-template-columns: repeat(3, 360px); /* 3 стовпці по 360px */
-  gap: 20px; /* Проміжок між картками */
-  justify-content: center; /* Вирівнювання по центру контейнера */
-  list-style-type: none; /* Видалення маркерів списку */
-  padding: 0; /* Видалення внутрішнього відступу */
-  margin: 0 auto; /* Центрування галереї */
+  grid-template-columns: repeat(3, 360px);
+  gap: 20px;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
 }
 
-/* Стиль для кожної картки */
 .gallery-item {
-  width: 360px; /* Фіксована ширина картки */
-  height: 200px; /* Фіксована висота картки */
-  overflow: hidden; /* Приховати будь-який контент, що виходить за межі картки */
-  /* border-radius: 10px; Згладжування кутів картки */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Додавання тіні для картки */
+  width: 360px;
+  height: 200px;
+  overflow: hidden;
+  /* border-radius: 10px; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-/* Стиль для зображень у картках */
 .gallery-image {
-  width: 100%; /* Ширина зображення на всю ширину картки */
-  height: 100%; /* Висота зображення на всю висоту картки */
-  object-fit: cover; /* Обрізка зображення за розміром картки */
-  display: block; /* Видалення нижнього відступу зображення */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
+
+.gallery-item:hover,
+.gallery-item:focus {
+  transform: scale(1.05);
+}
+/* через flex */
+
+/* .gallery {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px; 
+  justify-content: center; 
+  padding: 0;
+  margin: 0 auto;
+  list-style-type: none;
+}
+
+.gallery-item {
+  width: 360px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+} */

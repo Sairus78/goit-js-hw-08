@@ -88,3 +88,43 @@ function generateProductsMarkup(images) {
     })
     .join('');
 }
+container.addEventListener('click', onCardClick);
+
+function onCardClick(event) {
+  event.preventDefault();
+
+  const listItem = event.target.closest('.gallery-item');
+
+  if (!listItem) {
+    console.log('Click не на елементі списку');
+    return;
+  }
+
+  const imageElement = listItem.querySelector('.gallery-image');
+
+  if (imageElement) {
+    const largeImageURL = imageElement.dataset.source;
+
+    const instance = basicLightbox.create(
+      `
+      <img src="${largeImageURL}" class="modal-image">
+    `,
+      {
+        onShow: instance => {
+          const img = instance.element().querySelector('img');
+          img.style.width = '1112px';
+          img.style.height = '640px';
+        },
+      }
+    );
+
+    instance.show();
+  }
+}
+// import * as basicLightbox from 'basiclightbox';
+
+// const instance = basicLightbox.create(`
+//     <img src="assets/images/image.png" width="1112" height="640">
+// `);
+
+// instance.show();
